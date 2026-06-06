@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://soumission-porte-garage.ca/sitemap-index.xml

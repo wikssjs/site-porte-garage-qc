@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 40" width="240" height="40">
+  <!-- Garage door icon: rectangular door with horizontal panels and top arc handle -->
+  <!-- Door frame outer -->
+  <rect x="2" y="6" width="28" height="28" rx="1" fill="none" stroke="#ea580c" stroke-width="2"/>
+  <!-- Door panel lines (horizontal) -->
+  <line x1="3" y1="13" x2="29" y2="13" stroke="#ea580c" stroke-width="1.5"/>
+  <line x1="3" y1="20" x2="29" y2="20" stroke="#ea580c" stroke-width="1.5"/>
+  <line x1="3" y1="27" x2="29" y2="27" stroke="#ea580c" stroke-width="1.5"/>
+  <!-- Handle dot -->
+  <circle cx="16" cy="23.5" r="1.5" fill="#ea580c"/>
+  <!-- Track rail lines on sides -->
+  <line x1="0" y1="6" x2="0" y2="34" stroke="#c2410c" stroke-width="1.5"/>
+  <line x1="32" y1="6" x2="32" y2="34" stroke="#c2410c" stroke-width="1.5"/>
+  <!-- Text: SOUMISSION small above, PORTE DE GARAGE large -->
+  <text x="40" y="14" font-family="'Arial Narrow', Arial, sans-serif" font-size="9" font-weight="700" letter-spacing="2" fill="#c2410c" text-anchor="start">SOUMISSION</text>
+  <text x="40" y="32" font-family="'Arial Narrow', Arial, sans-serif" font-size="19" font-weight="700" letter-spacing="0.5" fill="#ea580c" text-anchor="start">Porte de Garage</text>
+</svg>
