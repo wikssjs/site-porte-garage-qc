@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /soumission-porte-garage/
 
 Sitemap: https://soumission-porte-garage.ca/sitemap-index.xml
