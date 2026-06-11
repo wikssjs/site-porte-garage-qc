@@ -141,7 +141,7 @@
       <div class="pg-hero__kicker">
         <div class="pg-badge-live">
           <span class="pg-pulse" style="width:.375rem;height:.375rem;border-radius:50%;background:var(--p400);display:inline-block;flex-shrink:0"></span>
-          17 demandes de soumission cette semaine
+          15 demandes de soumission cette semaine
         </div>
       </div>
 
@@ -747,7 +747,7 @@
         </p>
         <div class="pg-footer__pulse-row">
           <span class="pg-pulse" style="width:.4375rem;height:.4375rem;border-radius:9999px;background:var(--p500);display:inline-block"></span>
-          17 demandes de soumission cette semaine
+          15 demandes de soumission cette semaine
         </div>
       </div>
 
@@ -756,7 +756,7 @@
         <div class="pg-footer__links">
           <a href="/la-martre">La Martre</a>
           <a href="/les-iles-de-la-madeleine">Les Îles-de-la-Madeleine</a>
-          <a href="/riviere-saint-jean">Rivière-Saint-Jean</a>
+          <a href="/riviere-saint-jean-gaspesie-iles-de-la-madeleine-11">Rivière-Saint-Jean</a>
           <a href="/paspebiac">Paspébiac</a>
           <a href="/sainte-therese-de-gaspe">Sainte-Thérèse-de-Gaspé</a>
           <a href="/murdochville">Murdochville</a>
@@ -977,89 +977,6 @@ function nextStep(n) {
   if (!current) { showStep(n); return; }
   var errCount = _validateStep(current, _fStep);
   if (errCount > 0) { _showBanner(current, errCount); return; }
-  showStep(n);
-}
-
-function prevStep(n) { showStep(n); }
-
-/* --- Phone auto-format --- */
-document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('input[type="tel"]').forEach(function(inp) {
-    inp.addEventListener('input', function() {
-      var d = inp.value.replace(/\D/g, '').slice(0, 10);
-      if (d.length <= 3) inp.value = d;
-      else if (d.length <= 6) inp.value = d.slice(0,3) + ' ' + d.slice(3);
-      else inp.value = d.slice(0,3) + ' ' + d.slice(3,6) + '-' + d.slice(6);
-    });
-  });
-});
-
-var _submitUrl = '/';
-var _form = document.getElementById('empire-form');
-if (_form) {
-  _form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    var current = document.getElementById('step-' + _fStep);
-    if (current) {
-      var errCount = _validateStep(current, _fStep);
-      if (errCount > 0) { _showBanner(current, errCount); return; }
-    }
-    var data = new FormData(_form);
-    fetch(_submitUrl, {
-      method: 'POST',
-      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-      body: new URLSearchParams(data).toString()
-    }).then(function() {
-      document.querySelectorAll('.pg-form-step').forEach(function(s) { s.classList.remove('active'); });
-      var merci = document.getElementById('step-merci');
-      if (merci) merci.classList.add('active');
-      _updateDots(_totalSteps + 1);
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'lead_qualifie', {event_category: 'lead', event_label: 'Saint-Siméon', event_value: 1});
-      }
-    }).catch(function() { _form.submit(); });
-  });
-}
-
-var _stickyBar = document.getElementById('sticky-bar');
-if (_stickyBar) {
-  var _formEl = document.getElementById('formulaire');
-  window.addEventListener('scroll', function() {
-    if (_formEl) {
-      var rect = _formEl.getBoundingClientRect();
-      _stickyBar.style.display = (rect.top < window.innerHeight && rect.bottom > 0) ? 'none' : '';
-    }
-  }, {passive: true});
-}
-</script>
-<script>
-(function(){
-  /* Scroll reveal */
-  var els=document.querySelectorAll('.pg-reveal');
-  if(els.length&&'IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target);}});
-    },{threshold:.1,rootMargin:'0px 0px -40px 0px'});
-    els.forEach(function(el){io.observe(el);});
-  } else {
-    els.forEach(function(el){el.classList.add('is-visible');});
-  }
-  /* Nav scroll tint */
-  var nav=document.querySelector('.pg-nav');
-  if(nav){window.addEventListener('scroll',function(){nav.classList.toggle('is-scrolled',window.scrollY>60);},{passive:true});}
-  /* FAQ accordion */
-  document.querySelectorAll('.pg-faq-btn').forEach(function(btn){
-    btn.addEventListener('click',function(){
-      var item=btn.closest('.pg-faq-item');
-      var isOpen=item.classList.contains('is-open');
-      document.querySelectorAll('.pg-faq-item.is-open').forEach(function(i){i.classList.remove('is-open');});
-      if(!isOpen)item.classList.add('is-open');
-    });
-  });
-})();
-</script>
-</body>
-</html>eturn; }
   showStep(n);
 }
 
